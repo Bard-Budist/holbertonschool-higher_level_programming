@@ -17,7 +17,7 @@ listint_t * insert_node (listint_t ** head, int number)
   if (temporal->n >= number)
   {
     new_node->n = number;
-    new_node->next = temporal->next;
+    new_node->next = temporal;
     *head = new_node;
     return (new_node);
   }
