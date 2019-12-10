@@ -23,7 +23,14 @@ listint_t * insert_node (listint_t ** head, int number)
   }
   while (temporal != NULL)
   {
-    if (temporal->next->n >= number)
+    if (temporal->next == NULL)
+    {
+      new_node->n = number;
+      new_node->next = NULL;
+      temporal->next = new_node;
+      return (new_node);
+    }
+    if (temporal->next != NULL && temporal->next->n >= number)
     {
       new_node->n = number;
       new_node->next = temporal->next;
