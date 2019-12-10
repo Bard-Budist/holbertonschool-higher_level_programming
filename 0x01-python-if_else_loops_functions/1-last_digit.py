@@ -9,7 +9,7 @@ if (number < 0):
     last = (numberPosi % 10) * -1
 else:
     last = numberPosi % 10
-print(last)
+
 if last > 5:
     print("Last digit of {:d} is {:d} and is greater than 5".
           format(number, last))
