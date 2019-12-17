@@ -16,7 +16,7 @@ int is_palindrome(listint_t **head)
 
         for (i = 0; i < len; i++)
         {
-                if ((*head[i]).n != (*head[i - len]).n)
+                if ((*head[i]).n != (*head[len - 1 - i]).n)
                 {
                         return (0);
                 }
