@@ -8,7 +8,7 @@ int is_palindrome(listint_t **head)
 {
         int len = 0, i;
 
-        if (head == NULL || *head == NULL)
+        if (head == NULL || *head == NULL || (*head)->next == NULL)
                 return (1);
         
         while (head[len] != NULL)
