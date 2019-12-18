@@ -7,22 +7,23 @@
 int is_palindrome(listint_t **head)
 {
         int len = 0, i;
-
-        if (head == NULL)
-                return (0);
-
-        if  (*head == NULL || (*head)->next == NULL)
+        listint_t *tem2 = *head, *tem1 = *head;
+        if (head == NULL || *head == NULL || (*head)->next == NULL)
                 return (1);
-        
-        while (head[len] != NULL)
-                len++;
 
-        for (i = 0; i < len; i++)
+        while (tem2->next != NULL)
         {
-                if ((*head[i]).n != (*head[len - 1 - i]).n)
+                tem2 = tem2->next;
+                len++;
+        }
+        for (i = 0; i < len / 2; i++)
+        {       
+                if (tem1->n != tem2->n)
                 {
                         return (0);
                 }
+                tem1++;
+                --tem2;
         }
         return (1);
 }
