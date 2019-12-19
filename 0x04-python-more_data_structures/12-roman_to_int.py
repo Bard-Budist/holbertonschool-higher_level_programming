@@ -2,8 +2,8 @@
 def roman_to_int(roman_string):
     if not roman_string:
         return 0
-    roman_Char = ['I', 'V', 'X', 'L', 'C', 'D', 'M']
-    roman = [1, 5, 10, 50, 100, 500, 1000]
+    roman_Char = [' ','I', 'V', 'X', 'L', 'C', 'D', 'M']
+    roman = [0 ,1, 5, 10, 50, 100, 500, 1000]
     romansum = 0
     temp = 0
     letter = ''
