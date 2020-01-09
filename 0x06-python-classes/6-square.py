@@ -43,18 +43,18 @@ class Square:
         return (self.__position)
 
     @position.setter
-    def position(self, position):
+    def position(self, value):
         """
         Note:
             Set value to Position
         Args:
             position (:obj: is a tuple)
         """
-        if ((type(position) is not tuple)
-                or (positio[0] < 0 or position[1] < 0) or (len(position) < 2)):
+        if ((type(value) is not tuple)
+                or (value[0] < 0 or value[1] < 0) or (len(value) < 2)):
             raise TypeError("position must be a tuple of 2 positive integers")
         else:
-            self.__position = position
+            self.__position = value
 
     def my_print(self):
         """docstring for f"""
