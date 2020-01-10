@@ -63,15 +63,14 @@ class Square:
 
     def my_print(self):
         """docstring for f"""
-        x = self.__size
-        if (x == 0):
+        if (self.__size == 0):
             print()
         for i in range(self.__position[1]):
             print()
-        for i in range(x):
+        for i in range(self.__size):
             for i in range(self.position[0]):
                 print(" ", end="")
-            for i in range(x):
+            for i in range(self.__size):
                 print("#", end="")
             print()
 
