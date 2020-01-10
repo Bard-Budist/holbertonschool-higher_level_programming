@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 class Square:
+
     def __init__(self, size=0, position=(0, 0)):
         """
         docstring for __init__
@@ -63,7 +64,9 @@ class Square:
     def my_print(self):
         """docstring for f"""
         x = self.__size
-        if (x == 0 or self.__position[1] > 0):
+        if (x == 0):
+            print()
+        for r int range(self.__position[1]):
             print()
         for i in range(x):
             for item in range(self.position[0]):
