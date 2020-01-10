@@ -10,7 +10,6 @@ class Square:
             raise ValueError("size must be >= 0")
         else:
             self.__size = size
-            self.__position = position
 
         if ((type(position) is not tuple)
                 or (type(position[0]) is not int
