@@ -1,0 +1,44 @@
+===============================
+0. Integer addition module
+===============================
+
+import module:
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+
+Function:
+============
+Adds 2 integers
+
+Test #0
+    >>> add_integer(1, 2)
+    3
+
+Test #1
+    >>> add_integer(5)
+    103
+
+Test #2
+    >>> add_integer(None, 2)
+    Traceback (most recent call last):
+    TypeError: a must be a integer
+
+Test #3
+    >>> add_integer(5, None)
+    Traceback (most recent call last):
+    TypeError: b must be a integer
+
+Test #4
+    >>> add_integer(5, [1, 2])
+    Traceback (most recent call last):
+    TypeError: b must be a integer
+
+Test #5
+    >>> add_integer(1, )
+    99
+
+Test #6
+    >>> add_integer(1, "JavaisCool")
+    Traceback (most recent call last):
+    TypeError: b must be a integer
+
