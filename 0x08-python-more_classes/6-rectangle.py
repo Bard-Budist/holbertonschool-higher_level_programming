@@ -1,9 +1,12 @@
 #!/usr/bin/python3
 class Rectangle():
 
+    number_of_instances = 0
+
     def __init__(self, width=0, height=0):
         self.__height = self.checkHeight(height)
         self.__width = self.checkWidth(width)
+        Rectangle.number_of_instances += 1
 
     @property
     def height(self):
@@ -58,3 +61,11 @@ class Rectangle():
                 string += ("\n" if x + 1 != self.__height else "")
         return string
 
+
+    def __repr__(self):
+        string = "Rectangle" + str(eval('self.width, self.height'))
+        return string
+
+    def __del__(self):
+        print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1

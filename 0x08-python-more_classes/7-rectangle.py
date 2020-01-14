@@ -1,9 +1,14 @@
 #!/usr/bin/python3
 class Rectangle():
 
+    number_of_instances = 0
+    print_symbol = "#"
+
     def __init__(self, width=0, height=0):
         self.__height = self.checkHeight(height)
         self.__width = self.checkWidth(width)
+        Rectangle.number_of_instances += 1
+        Rectangle.print_symbol = Rectangle.print_symbol
 
     @property
     def height(self):
@@ -54,7 +59,16 @@ class Rectangle():
         else:
             for x in range(self.__height):
                 for y in range(self.__width):
-                    string += "#"
+                    string += "{0!s}".format(self.print_symbol)
+                    #string += "%s" % ((self.print_symbol))
                 string += ("\n" if x + 1 != self.__height else "")
         return string
 
+
+    def __repr__(self):
+        string = "Rectangle" + str(eval('self.width, self.height'))
+        return string
+
+    def __del__(self):
+        print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1

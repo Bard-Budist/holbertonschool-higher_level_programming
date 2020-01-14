@@ -58,3 +58,10 @@ class Rectangle():
                 string += ("\n" if x + 1 != self.__height else "")
         return string
 
+
+    def __repr__(self):
+        string = "Rectangle" + str(eval('self.width, self.height'))
+        return string
+
+    def __del__(self):
+        print("Bye rectangle...")

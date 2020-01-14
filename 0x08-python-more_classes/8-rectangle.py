@@ -1,9 +1,14 @@
 #!/usr/bin/python3
 class Rectangle():
 
+    number_of_instances = 0
+    print_symbol = "#"
+
     def __init__(self, width=0, height=0):
         self.__height = self.checkHeight(height)
         self.__width = self.checkWidth(width)
+        Rectangle.number_of_instances += 1
+        Rectangle.print_symbol = Rectangle.print_symbol
 
     @property
     def height(self):
@@ -37,6 +42,20 @@ class Rectangle():
             raise ValueError("height must be >= 0")
         return height
 
+    @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
+        if (isinstance(rect_1, Rectangle) == False):
+            raise TypeError("rect_1 must be an instance of Rectangle")
+        elif (isinstance(rect_2, Rectangle) == False):
+            raise TypeError("rect_2 must be an instance of Rectangle")
+
+        if (rect_1.area() == rect_2.area()):
+            return rect_1
+        elif (rect_1.area() > rect_2.area()):
+            return rect_1
+        else:
+            rect_2
+
     def area(self):
         return (self.__height * self.__width)
 
@@ -54,7 +73,15 @@ class Rectangle():
         else:
             for x in range(self.__height):
                 for y in range(self.__width):
-                    string += "#"
+                    string += "%s" % ((self.print_symbol))
                 string += ("\n" if x + 1 != self.__height else "")
         return string
 
+
+    def __repr__(self):
+        string = "Rectangle" + str(eval('self.width, self.height'))
+        return string
+
+    def __del__(self):
+        print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
