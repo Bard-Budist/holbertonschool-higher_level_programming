@@ -44,9 +44,9 @@ class Rectangle():
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
-        if (isinstance(rect_1, Rectangle) == False):
+        if (isinstance(rect_1, Rectangle) is False):
             raise TypeError("rect_1 must be an instance of Rectangle")
-        elif (isinstance(rect_2, Rectangle) == False):
+        elif (isinstance(rect_2, Rectangle) is False):
             raise TypeError("rect_2 must be an instance of Rectangle")
 
         if (rect_1.area() == rect_2.area()):
@@ -64,7 +64,6 @@ class Rectangle():
     def area(self):
         return (self.__height * self.__width)
 
-
     def perimeter(self):
         if (self.__height == 0 or self.__width == 0):
             return 0
@@ -81,7 +80,6 @@ class Rectangle():
                     string += "%s" % ((self.print_symbol))
                 string += ("\n" if x + 1 != self.__height else "")
         return string
-
 
     def __repr__(self):
         string = "Rectangle" + str(eval('self.width, self.height'))
