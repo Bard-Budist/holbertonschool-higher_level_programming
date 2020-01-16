@@ -58,5 +58,5 @@ class Rectangle():
         return string
 
     def __repr__(self):
-        string = "Rectangle" + str(eval('self.__width, self.__height'))
+        string = "Rectangle" + str(eval('self.width, self.height'))
         return string
