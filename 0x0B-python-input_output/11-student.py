@@ -1,7 +1,4 @@
 #!/usr/bin/python3
-class_to_json = __import__('10-class_to_json').class_to_json
-
-
 class Student:
     def __init__(self, first_name, last_name, age):
         self.first_name = first_name
@@ -9,4 +6,4 @@ class Student:
         self.age = age
 
     def to_json(self):
-        return(class_to_json(self))
+        return(vars(self))
