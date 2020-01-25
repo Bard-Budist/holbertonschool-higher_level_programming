@@ -6,7 +6,7 @@ from models.square import Square
 
 if __name__ == "__main__":
 
-    r1 = Square(5)
+    r1 = Square(6)
     r2 = Rectangle(2, 4)
     print(type(r1))
     Rectangle.save_to_file([r1])

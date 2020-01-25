@@ -21,7 +21,7 @@ class Base:
     def save_to_file(cls, list_objs):
         lists = []
         ban = 0
-        print(cls)
+        print(len(list_objs[0].to_dictionary()))
         if list_objs is not None:
             #string = ("Rectangle" if isinstance(list_objs[0], Rentangle)
             #        else "Square")
