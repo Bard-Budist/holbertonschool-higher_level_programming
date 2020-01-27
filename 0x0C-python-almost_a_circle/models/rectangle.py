@@ -1,10 +1,18 @@
 #!/usr/bin/python3
+"""
+    Rectangle
+"""
 from models.base import Base
 
 
 class Rectangle(Base):
-
+    """
+        Rectangle
+    """
     def __init__(self, width, height, x=0, y=0, id=None):
+        """
+            Init
+        """
         self.__width = self.validationD(width, "width")
         self.__height = self.validationD(height, "height")
         self.__x = self.validationC(x, "x")
@@ -13,38 +21,65 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """
+            width gettter
+        """
         return self.__width
 
     @width.setter
     def width(self, value):
+        """
+            width setter
+        """
         self.__width = self.validationD(value, "width")
 
     @property
     def height(self):
+        """
+            height getter
+        """
         return self.__height
 
     @height.setter
     def height(self, value):
+        """
+            height setter
+        """
         self.__height = self.validationD(value, "height")
 
     @property
     def x(self):
+        """
+            x gettter
+        """
         return self.__x
 
     @x.setter
     def x(self, value):
+        """
+            x setter
+        """
         self.__x = self.validationC(value, "x")
 
     @property
     def y(self):
+        """
+            t gettter
+        """
         return self.__y
 
     @y.setter
     def y(self, value):
+        """
+            y setter
+        """
         self.__y = self.validationC(value, "y")
 
     @staticmethod
     def validationD(value, name):
+        """
+            validation
+        """
         if (type(value) is not int):
             raise TypeError("{} must be an integer".format(name))
         elif (value <= 0):
@@ -53,6 +88,9 @@ class Rectangle(Base):
 
     @staticmethod
     def validationC(value, name):
+        """
+            validation
+        """
         if (type(value) is not int):
             raise TypeError("{} must be an integer".format(name))
         elif (value < 0):
@@ -60,9 +98,15 @@ class Rectangle(Base):
         return value
 
     def area(self):
+        """
+            area
+        """
         return (self.__width * self.__height)
 
     def display(self):
+        """
+            display
+        """
         print("\n" * self.__y, end="")
         for i in range(self.__height):
             print(" " * self.__x, end="")
@@ -70,10 +114,16 @@ class Rectangle(Base):
             print()
 
     def __str__(self):
+        """
+            str
+        """
         return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x
                 , self.__y, self.__width, self.__height))
 
     def update(self, *args, **kwargs):
+        """
+            update
+        """
         if (len(args) != 0 and args is not None):
             tam = len(args)
             if (tam >= 1):
@@ -90,6 +140,9 @@ class Rectangle(Base):
             self.validateUpdate(args, kwargs)
 
     def validateUpdate(self, args, kwargs):
+        """
+            update
+        """
         if ("id" in kwargs):
             self.id = kwargs["id"]
         if ("width" in kwargs):
@@ -102,11 +155,8 @@ class Rectangle(Base):
             self.__y = self.validationC(kwargs["y"], "y")
 
     def to_dictionary(self):
+        """
+            To dictionary
+        """
         return {'x': self.__x, 'y': self.__y, 'id': self.id
                 , 'width': self.__width, 'height': self.__height}
-
-
-
-
-
-
