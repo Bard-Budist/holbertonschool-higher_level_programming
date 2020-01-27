@@ -4,6 +4,7 @@
     This is a base
 """
 import json
+import turtle
 
 
 class Base:
@@ -112,3 +113,8 @@ class Base:
                 return lists
         except IOError:
             return lists
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        smart = turtle.Turtle()
+        smart.forward(50)
