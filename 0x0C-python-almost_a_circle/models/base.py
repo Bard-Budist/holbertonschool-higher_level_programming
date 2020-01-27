@@ -38,14 +38,11 @@ class Base:
         """
         lists = []
         string = cls.__name__ + ".json"
-        with open(string, mode="w+") as f:
-            if list_objs is None:
-                f.write(str(lists))
-                return lists
-            for items in list_objs:
-                lists.append(cls.to_json_string(items.to_dictionary()))
-            f.write(str(lists))
-            return lists
+        with open(string, mode="w+", encoding="utf-8") as f:
+            if list_objs is not None:
+                for items in list_objs:
+                    lists.append(items.to_dictionary())
+            f.write(cls.to_json_string(lists))
 
     @staticmethod
     def from_json_string(json_string):
