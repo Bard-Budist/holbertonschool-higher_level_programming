@@ -59,7 +59,10 @@ class Base:
         """
             create
         """
-        new = cls(1, 1)
+        if len(dictionary) == 5:
+            new = cls(1, 1)
+        else:
+            new = cls(1)
         new.update(**dictionary)
         return new
 
