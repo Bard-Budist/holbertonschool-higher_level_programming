@@ -37,14 +37,15 @@ class Base:
             Save to file
         """
         lists = []
-        if list_objs is not None:
-            string = cls.__name__ + ".json"
+        string = cls.__name__ + ".json"
+        with open(string, mode="w+") as f:
+            if list_objs is None:
+                f.write(str(lists))
+                return lists
             for items in list_objs:
-                lists.append(cls.to_json_string(items.to_dictionary()))
-            file = open(string, mode="w+")
-            file.write(str(lists))
-            file.close
-        return lists
+                lists.append(items.to_dictionary())
+            f.write(str(lists))
+            return lists
 
     @staticmethod
     def from_json_string(json_string):
@@ -61,7 +62,7 @@ class Base:
         """
             create
         """
-        new = cls(5, 5)
+        new = cls(1, 1)
         new.update(**dictionary)
         return new
 
@@ -72,13 +73,13 @@ class Base:
         """
         string = cls.__name__ + ".json"
         lists = []
-        with open(string, "r") as file:
-            dic = file.readlines()
-            temp = str(dic[0])
-            print(Base.from_json_string(temp))
-            print(Base.from_json_string(dic[0]))
-            for item in range(len(dic)):
-                new = cls(5, 5)
-                new.update(dic[item])
-                lists.append(new)
-        return lists
+        try:
+            with open(string, mode="r") as f:
+                read = f.read()
+                data = cls.from_json_string(read)
+                print(data)
+                for item in data:
+                    lists.append(cls.create(**item))
+                return lists
+        except IOError:
+            return lists
