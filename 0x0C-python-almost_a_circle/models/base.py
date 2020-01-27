@@ -27,6 +27,8 @@ class Base:
         """
             To_json_String
         """
+        if list_dictionaries is None:
+            return []
         return (json.dumps(list_dictionaries))
 
     @classmethod
@@ -38,7 +40,7 @@ class Base:
         if list_objs is not None:
             string = cls.__name__ + ".json"
             for items in list_objs:
-                lists.append(items.to_dictionary())
+                lists.append(cls.to_json_string(items.to_dictionary()))
             file = open(string, mode="w+")
             file.write(str(lists))
             file.close
