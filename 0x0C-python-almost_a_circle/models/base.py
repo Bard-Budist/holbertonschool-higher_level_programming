@@ -43,7 +43,7 @@ class Base:
                 f.write(str(lists))
                 return lists
             for items in list_objs:
-                lists.append(items.to_dictionary())
+                lists.append(cls.to_json_string(items.to_dictionary()))
             f.write(str(lists))
             return lists
 
