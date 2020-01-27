@@ -77,7 +77,6 @@ class Base:
             with open(string, mode="r") as f:
                 read = f.read()
                 data = cls.from_json_string(read)
-                print(data)
                 for item in data:
                     lists.append(cls.create(**item))
                 return lists
