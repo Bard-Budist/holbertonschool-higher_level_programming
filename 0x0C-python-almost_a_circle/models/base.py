@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 import json
-#from base import Base
 
 
 class Base:
@@ -20,21 +19,39 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         lists = []
-        ban = 0
-        print(len(list_objs[0].to_dictionary()))
         if list_objs is not None:
-            #string = ("Rectangle" if isinstance(list_objs[0], Rentangle)
-            #        else "Square")
-            for check in list_objs:
-                if (issubclass(type(check), Base) == False):
-                    ban = 1
-            if ban == 0:
-                for items in list_objs:
-                    print(items)
-                    lists.append(cls.to_json_string([items.to_dictionary()]))
-            file = open("Rectangle.json", mode="w+")
+            string = cls.__name__ + ".json"
+            for items in list_objs:
+                lists.append(items.to_dictionary())
+            file = open(string, mode="w+")
             file.write(str(lists))
             file.close
         return lists
 
+    @staticmethod
+    def from_json_string(json_string):
+        lists = []
+        if (json_string is None or len(json_string) == 0):
+            return lists
+        return list(json.loads(json_string))
 
+    @classmethod
+    def create(cls, **dictionary):
+        new = cls(5, 5)
+        new.update(**dictionary)
+        return new
+
+    @classmethod
+    def load_from_file(cls):
+        string = cls.__name__ + ".json"
+        lists = []
+        with open(string, "r") as file:
+            dic = file.readlines()
+            temp = str(dic[0])
+            print(Base.from_json_string(temp))
+            print (Base.from_json_string(dic[0]))
+            for item in range(len(dic)):
+                new = cls(5, 5)
+                new.update(dic[item])
+                lists.append(new)
+        return lists
