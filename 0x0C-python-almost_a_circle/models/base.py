@@ -59,7 +59,7 @@ class Base:
         """
             create
         """
-        if len(dictionary) == 5:
+        if cls.__name__ == "Rectangle":
             new = cls(1, 1)
         else:
             new = cls(1)
