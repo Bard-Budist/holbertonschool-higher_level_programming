@@ -1,26 +1,46 @@
 #!/usr/bin/python3
+"""
+    Square
+"""
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-
+    """
+        Square
+    """
     def __init__(self, size, x=0, y=0, id=None):
+        """
+            init
+        """
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
-        s = "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y
-                , self.width)
+        """
+            str
+        """
+        dato = self.id
+        s = "[Square] ({}) {}/{} - {}".format(dato, self.x, self.y, self.width)
         return s
 
     @property
     def size(self):
+        """
+            size
+        """
         return self.width
 
     @size.setter
     def size(self, value):
+        """
+            size setter
+        """
         self.width = value
 
     def update(self, *args, **kwargs):
+        """
+            update
+        """
         if (len(args) != 0 and args is not None):
             tam = len(args)
             if (tam >= 1):
@@ -35,6 +55,9 @@ class Square(Rectangle):
             self.validateUpdate(args, kwargs)
 
     def validateUpdate(self, args, kwargs):
+        """
+            valiupdate
+        """
         if ("id" in kwargs):
             self.id = kwargs["id"]
         if ("size" in kwargs):
@@ -45,4 +68,7 @@ class Square(Rectangle):
             self.y = kwargs["y"]
 
     def to_dictionary(self):
-        return {'id': self.id, 'size': self.width, 'x': self.x, 'y':self.y}
+        """
+            to_dictionary
+        """
+        return {'id': self.id, 'size': self.width, 'x': self.x, 'y': self.y}
