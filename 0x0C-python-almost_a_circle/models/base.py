@@ -116,5 +116,38 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
-        smart = turtle.Turtle()
-        smart.forward(50)
+        x = 0
+        colors = ['red', 'purple', 'blue', 'green', 'orange', 'yellow']
+        rec = turtle.Turtle()
+        rec.shape('turtle')
+        if list_rectangles is not None:
+            for itemsR in list_rectangles:
+                rec.pencolor(colors[x%6])
+                rec.penup()
+                rec.setx(itemsR.x)
+                rec.sety(itemsR.y)
+                rec.pendown()
+                for i in range(2):
+                    rec.forward(itemsR.width)
+                    rec.right(90)
+                    rec.forward(itemsR.height)
+                    rec.right(90)
+                x += 1
+        turtle.clearscreen()
+        x = 0
+        if list_squares is not None:
+            rec = turtle.Turtle()
+            rec.shape('turtle')
+            for itemsQ in list_squares:
+                rec.pencolor(colors[x%6])
+                rec.penup()
+                x = itemsQ.x
+                y = itemsQ.y
+                rec.setx(x)
+                rec.sety(y)
+                rec.pendown()
+                for i in range(4):
+                    rec.forward(itemsQ.size)
+                    rec.right(90)
+                x += 1
+        turtle.exitonclick()
