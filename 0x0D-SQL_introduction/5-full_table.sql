@@ -1,2 +1,2 @@
---Show commands to Table
+-- Show commands to Table
 SHOW CREATE TABLE first_table
