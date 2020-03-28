@@ -13,4 +13,7 @@ if __name__ == "__main__":
     session = Session()
 
     first = session.query(State).first()
-    print("{:d}: {}".format(first.id, first.name))
+    if (first is not None):
+        print("{:d}: {}".format(first.id, first.name))
+    else:
+        print()
