@@ -16,4 +16,4 @@ if __name__ == "__main__":
     if (first is not None):
         print("{:d}: {}".format(first.id, first.name))
     else:
-        print()
+        print("Nothing")
