@@ -1,19 +1,16 @@
 #!/usr/bin/python3
-"""Task 02"""
+"""Get all states"""
 import MySQLdb
 import sys
-
 if __name__ == "__main__":
     db = MySQLdb.connect(
-        host='localhost',
-        user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3], port=3306)
-    cursor = db.cursor()
+        host='localhost', user=sys.argv[1],
 
-    cursor.execute("SELECT * FROM states WHERE name = (%s)\
-                    ORDER BY id ASC", [sys.argv[4]])
-    data = cursor.fetchall()
-
-    for row in data:
-        print(row)
-    cursor.close()
-    db.close()
+        passwd=sys.argv[2], db=sys.argv[3], port=3306
+        )
+    cur = db.cursor()
+    cur.execute('SELECT * FROM states WHERE name = (%s)\
+                GROUP BY id ASC', [sys.argv[4]])
+    rows = cur.fetchall()
+    for i in range(len(rows)):
+        print(rows[i])
