@@ -1,3 +1,3 @@
 #!/bin/bash
 # Task 01
-curl -L $1
+curl -sL $1
