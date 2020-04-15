@@ -14,4 +14,6 @@ if __name__ == "__main__":
     commit = rp.json()
     for i in range(1, 11):
         dic = commit[i]
-        print("{}: {}".format(dic.get('sha'), dic.get('author').get('login')))
+        print("{}: {}".format(
+            dic.get('sha'),
+            dic.get('commit').get('author').get('name')))
