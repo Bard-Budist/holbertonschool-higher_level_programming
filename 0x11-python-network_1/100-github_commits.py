@@ -12,6 +12,6 @@ if __name__ == "__main__":
 
     rp = requests.get(url)
     commit = rp.json()
-    for i in range(1, 10):
+    for i in range(1, 11):
         dic = commit[i]
         print("{}: {}".format(dic.get('sha'), dic.get('author').get('login')))
