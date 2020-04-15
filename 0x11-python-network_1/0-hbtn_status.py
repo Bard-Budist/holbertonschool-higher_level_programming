@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-import urllib
+import urllib.request
+
+
 if __name__ == "__main__":
     with urllib.request.urlopen('https://intranet.hbtn.io/status') as rp:
         body = rp.read()
