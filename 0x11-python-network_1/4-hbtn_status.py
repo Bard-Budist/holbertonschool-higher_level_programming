@@ -5,9 +5,6 @@ import requests
 
 if __name__ == "__main__":
     with requests.get('https://intranet.hbtn.io/status') as rp:
-        print(
-            """Body response:
-            \t - type: {}
-            \t - content: {}""".format(
+        print("Body response:\n\t - type: {}\n\t - content: {}".format(
                 type(rp.content.decode('utf-8')),
                 rp.content.decode('utf-8')))
