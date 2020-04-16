@@ -5,6 +5,7 @@ import urllib.request
 if __name__ == "__main__":
     with urllib.request.urlopen('https://intranet.hbtn.io/status') as rp:
         body = rp.read()
-        print("""Body response:\n    - type: {}
-    - content: {}
-    - utf8 content: {}""".format(type(body), body, "OK"))
+        print("Body response:")
+        print("\t- type: {}".format(type(body)))
+        print("\t- content: {}".format(body))
+        print("\t- utf8 content: OK")
