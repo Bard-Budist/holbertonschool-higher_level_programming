@@ -4,6 +4,7 @@ import requests
 import sys
 
 if __name__ == "__main__":
+    cont = 0
     repo = sys.argv[1]
     own = sys.argv[2]
     url = 'https://api.github.com/repos/{}/{}/commits'.format(
@@ -12,8 +13,11 @@ if __name__ == "__main__":
 
     rp = requests.get(url)
     commit = rp.json()
-    for i in range(1, 11):
-        dic = commit[i]
+
+    for i in commit:
+        if (cont == 10 or cont == len(commit)):
+            break
         print("{}: {}".format(
-            dic.get('sha'),
-            dic.get('commit').get('author').get('name')))
+            i.get('sha'),
+            i.get('commit').get('author').get('name')))
+        cont = cont + 1
